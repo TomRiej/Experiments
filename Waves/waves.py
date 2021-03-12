@@ -3,6 +3,7 @@ from math import sin, pi
 from random import randint
 
 class Wave:
+    """A single sin wave class to make many sin waves"""
     def __init__(self, amp, per, phase):
         self.amp = amp
         self.per = per
@@ -18,6 +19,7 @@ class Wave:
             self.phase -= 0.05
 
 class AdditiveWave:
+    """few random sin waves put together to make an additive sin wave"""
     def __init__(self, canvas, size, colour):
         self.canvas = canvas
         self.size = size
@@ -98,8 +100,7 @@ class Sketch:
 
         self.master.after(1, self.update)
 
-#dbd81f
-#43bcf0
+
 COLOURS = {"Blue": "#43bcf0",
             "Yellow": "#dbd81f",
             "Green": "#1fdb32",
