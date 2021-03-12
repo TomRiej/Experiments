@@ -4,7 +4,7 @@ import tkinter as tk
 from random import random, randint
 
 
-WINDOW_SIZE = (1500,800)
+WINDOW_SIZE = (1500,1000)
 GRAVITY = Vector(0,0.5)
 
         
