@@ -25,7 +25,7 @@ class AdditiveWave:
         self.waves = []
         self.colour = colour
         for i in range(NUM_WAVES):
-            self.waves.append(Wave(randint(20,self.size*0.2),randint(100,self.size),randint(0,50)))
+            self.waves.append(Wave(randint(20,self.size*0.2),randint(200,self.size),randint(0,50)))
     
     def drawPoint(self, x):
         y = self.size/2
