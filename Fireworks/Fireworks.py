@@ -1,12 +1,19 @@
+import tkinter as tk
+from random import randint, random, choice
+
 from Particle import Particle
 from Vector import Vector
-import tkinter as tk
-from random import random, randint
-
 
 WINDOW_SIZE = (1500,1000)
 GRAVITY = Vector(0,0.5)
 
+COLOURS = {"Blue": "#43bcf0",
+            "Yellow": "#dbd81f",
+            "Green": "#1fdb32",
+            "Red": "#d61c1c",
+            "Orange": "#ff8000",
+            "Indigo": "#f200ff",
+            "Purple": "#a200ff"}
         
         
 class Firework:
@@ -14,19 +21,33 @@ class Firework:
         self.canvas = canvas
         self.colour = colour
         self.particles = []
+        self.size = 10
+        self.burntOut = False
         
     def shootFirework(self):
-        self.particles.append(Particle(self.canvas, randint(0,WINDOW_SIZE[0]), WINDOW_SIZE[1], 20, self.colour, GRAVITY, True))
+        self.particles.append(Particle(self.canvas, randint(0,WINDOW_SIZE[0]), WINDOW_SIZE[1], self.size//2, self.colour, GRAVITY, True))
         
-    def update(self):
+    def updateAndDraw(self):
+        self.burntOut = True
         for particle in self.particles:
             particle.update()
-        
-    def draw(self):
-        for particle in self.particles:
             particle.draw()
-
-
+            if (not particle.fireing) and len(self.particles)==1:
+                self.explode()
+            if particle.lifespan > 0:
+                self.burntOut = False
+                
+    def explode(self):
+        seedParticle = self.particles[0]
+        for _ in range(50):
+            self.particles.append(Particle(self.canvas, 
+                                           seedParticle.pos.x, 
+                                           seedParticle.pos.y, 
+                                           self.size, 
+                                           self.colour, 
+                                           GRAVITY, False))
+                
+        
 
 class Sketch:
     def __init__(self, master):
@@ -40,7 +61,6 @@ class Sketch:
     def setup(self):
         # Initialise canvas
         self.canvas.pack()
-        self.canvas.focus_set()
         
         self.fireworks = []
         
@@ -50,14 +70,14 @@ class Sketch:
         self.canvas.delete("all")
         
         if random() < 0.1:
-            f = Firework(self.canvas, "blue")
+            f = Firework(self.canvas, choice(list(COLOURS.values())))
             f.shootFirework()
             self.fireworks.append(f)
         
         for firework in self.fireworks:
-            firework.update()
-            firework.draw()
-            
+            firework.updateAndDraw()
+            if firework.burntOut:
+                self.fireworks.remove(firework)
         
         self.master.after(1, self.update)
 
