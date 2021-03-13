@@ -1,6 +1,7 @@
 import tkinter as tk
-from math import sin, pi
+from math import pi, sin
 from random import randint
+
 
 class Wave:
     """A single sin wave class to make many sin waves"""
@@ -26,7 +27,7 @@ class AdditiveWave:
         self.ballSize = 5
         self.waves = []
         self.colour = colour
-        for i in range(NUM_WAVES):
+        for _ in range(NUM_WAVES):
             self.waves.append(Wave(randint(20,self.size*0.2),randint(200,self.size),randint(0,50)))
     
     def drawPoint(self, x):
