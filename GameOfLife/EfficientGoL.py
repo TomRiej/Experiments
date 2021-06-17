@@ -1,5 +1,5 @@
 import tkinter as tk
-from random import getrandbits
+# from random import getrandbits
 
 WINDOW_SIZE = (1001, 1001)
 BG_COLOUR = "#000000"
