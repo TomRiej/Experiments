@@ -32,7 +32,9 @@ class Branch {
         for (PVector e : electronPath) {
             // draw the points:
             fill(random(190,240), random(70,100), 100);  // BLUE
+            // fill(random(260,270), random(70,100), 100);  // PURPLE
             // fill(random(345,359), random(70,100), 100);  // RED
+            // fill(100, random(70, 100), random(40, 80));  // GREEN
             // fill(42, 84, 100);   // GOLD
             float normalDist = (startCoords.dist(e)/furthestDist);
             float radius = lerp(5, 1, (startCoords.dist(e)/furthestDist));

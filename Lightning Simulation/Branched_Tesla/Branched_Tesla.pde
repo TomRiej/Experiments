@@ -1,5 +1,5 @@
-int numRootBranches = 3;
-// Branch[] rootBranches = new Branch[numRootBranches];
+int numRootBranches = 1;
+Branch[] rootBranches = new Branch[numRootBranches];
 
 void setup() {
     size(800,400);
