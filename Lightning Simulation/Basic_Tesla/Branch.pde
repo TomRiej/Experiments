@@ -36,6 +36,7 @@ class Branch {
             // fill(random(345,359), random(70,100), 100);  // RED
             // fill(100, random(70, 100), random(40, 80));  // GREEN
             // fill(42, 84, 100);   // GOLD
+            // fill(42, 0, 100);   // WHITE
             float normalDist = (startCoords.dist(e)/furthestDist);
             float radius = lerp(5, 1, (startCoords.dist(e)/furthestDist));
             ellipse(e.x, e.y, radius, radius);
