@@ -2,7 +2,7 @@ ArrayList<Particle> particles = new ArrayList<Particle>();
 boolean mouseOnScreen = false;
 int hue = 0;
 Particle p, p2;
-int maxConnections = 10;
+int maxConnections = 5;
 
 
 
@@ -43,7 +43,7 @@ void draw() {
             hue = 0;
         }
 
-    println(particles.size());
+    // println(particles.size());
 }
 
 void mouseMoved() {
