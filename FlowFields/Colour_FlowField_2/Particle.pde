@@ -1,11 +1,12 @@
 public class Particle{
     PVector pos, vel, acc;
     float maxSpd;
-    int x, y;
+    int x, y, screenSize;
 
-    Particle(PVector start, float maxSpeed){
+    Particle(PVector start, float maxSpeed, int size){
         maxSpd = maxSpeed;
         pos = start;
+        screenSize = size;
         vel = new PVector(0, 0);
     }
 
@@ -15,10 +16,10 @@ public class Particle{
     }
 
     void edges() {
-        if (pos.x > 600) pos.x = 0;
-        else if (pos.x < 0) pos.x = 600;
-        if (pos.y > 600) pos.y = 0;
-        else if (pos.y < 0) pos.y = 600;
+        if (pos.x > screenSize) pos.x = 0;
+        else if (pos.x < 0) pos.x = screenSize;
+        if (pos.y > screenSize) pos.y = 0;
+        else if (pos.y < 0) pos.y = screenSize;
     }
 
     void follow(FlowField flowField) {
