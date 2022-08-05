@@ -6,8 +6,8 @@ public class FlowField {
 
     FlowField(int r) {
         res = r;
-        cols = (600 / res) + 1;
-        rows = (600 / res) + 1;
+        cols = (800 / res) + 1;
+        rows = (800 / res) + 1;
         vectors = new PVector[rows * cols];
     }
 

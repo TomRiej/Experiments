@@ -1,12 +1,12 @@
 FlowField flowField;
 Particle[] particles;
-int numParticles = 17500;
-int screenSize = 600;
+int numParticles = 25000;
+int screenSize = 800;
 
 
 void setup() {
     // fullScreen();
-    size(600, 600);
+    size(800, 800);
     colorMode(HSB, 360, 100, 100, 255); 
     flowField = new FlowField(10);
     flowField.update();
